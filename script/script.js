@@ -44,12 +44,12 @@ selectorTema.addEventListener("change", () => {
     const tema = selectorTema.value;
 
     if (tema === "claro") {
-        document.body.style.background = "white";
+        document.body.style.background = "linear-gradient(135deg, white, #dcdcdc)";
         document.body.style.color = "black";
     }
 
     if (tema === "oscuro") {
-        document.body.style.background = "black";
+        document.body.style.background = "linear-gradient(135deg, #000000, #2b2b2b)";
         document.body.style.color = "white";
     }
 
