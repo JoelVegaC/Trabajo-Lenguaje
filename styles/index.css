@@ -2,7 +2,9 @@
 body {
     margin: 0;
     padding: 0;
-    background: #0d0d0d;
+    background:
+        linear-gradient(to top, black, transparent),
+        linear-gradient(to bottom, purple, transparent);
     color: white;
     font-family: Arial, sans-serif;
     display: flex;
@@ -14,12 +16,15 @@ body {
 /* Contenedor centrado */
 .contenedor {
     text-align: center;
+    transition: padding-top 0.5s ease;
+    padding-top: 0px;
 }
 
 /* Titulo */
 .titulo {
     font-size: 50px;
     margin-bottom: 40px;
+    transition: transform 0.5s ease;
 }
 
 /* Boton de acceso */
@@ -31,11 +36,32 @@ body {
     cursor: pointer;
     background-color: #5c00ff;
     color: white;
-    transition: transform 0.3s box-shadow 0.3s;
+    transition: transform 0.5s ease box-shadow 0.5s ease;
+}
+/* Mensaje oculto por defecto */
+.mensaje {
+    font-size: 18px;
+    opacity: 0;
+    margin: 0 0 20px 0;
+    transition: opacity 0.5s ease;
+}
+
+/* Cuando el ratón está sobre el contenedor */
+.contenedor:hover .mensaje {
+    opacity: 1;
 }
 
 /* Cambio al pasar por el boton de acceso */
 .boton-acceso:hover {
     transform: scale(1.1);
     box-shadow: 0 0 20px #8f4dff;
+}
+/* Hover sobre el contenedor */
+.contenedor:hover .titulo {
+    transform: translateY(-100px); /* El título sube */
+}
+
+/* Para que el contenedor deje espacio arriba */
+.contenedor:hover {
+    padding-top: 40px;
 }
