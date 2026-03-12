@@ -1,1 +1,41 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    background: #0d0d0d;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
+/* Contenedor centrado */
+.contenedor {
+    text-align: center;
+}
+
+/* Titulo */
+.titulo {
+    font-size: 50px;
+    margin-bottom: 40px;
+}
+
+/* Boton de acceso */
+.boton-acceso {
+    padding: 15px 40px;
+    font-size: 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #5c00ff;
+    color: white;
+    transition: transform 0.3s box-shadow 0.3s;
+}
+
+/* Cambio al pasar por el boton de acceso */
+.boton-acceso:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #8f4dff;
+}
