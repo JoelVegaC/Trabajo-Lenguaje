@@ -1,1 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<galeria>
+
+    <personaje>
+        <titulo>Satoru Gojo</titulo>
+        <descripcion>El personaje más fuerte maestro del Infinito y los Seis Ojos.</descripcion>
+        <imagen>C:\Users\Alumno.DESKTOP-DI5KTUG\Desktop\Cosas Oskar\DAM\Lenguaje de Marcas\Proyecto 2Eva\Imagenes\satoru.jpg</imagen>
+    </personaje>
+
+    <personaje>
+        <titulo>Yuji Itadori</titulo>
+        <descripcion>Estudiante de primer año y recipiente de Sukuna, con una fuerza física extraordinaria.</descripcion>
+        <imagen>Imagenes\itadori.jpg</imagen>
+    </personaje>
+
+    <personaje>
+        <titulo>Megumi Fushiguro</titulo>
+        <descripcion>Usuario del estilo de sombras y shikigamis serio y estratégico.</descripcion>
+        <imagen>Imagenes\Megumi.jpg</imagen>
+    </personaje>
+
+    <personaje>
+        <titulo>Nobara Kugisaki</titulo>
+        <descripcion>Hechicera que utiliza técnicas basadas en martillo, clavos y muñecos vudú.</descripcion>
+        <imagen>Imagenes\Nobara.jpg</imagen>
+    </personaje>
+
+    <personaje>
+        <titulo>Ryomen Sukuna</titulo>
+        <descripcion>El Rey de las Maldiciones, una entidad temida incluso por los hechiceros más poderosos.</descripcion>
+        <imagen>Imagenes\Sukuna.jpg</imagen>
+    </personaje>
+
+    <personaje>
+        <titulo>Toji Fushiguro</titulo>
+        <descripcion>Asesino legendario conocido como el Cazador de Hechiceros, sin energía maldita pero con habilidades físicas sobrehumanas.</descripcion>
+        <imagen>Imagenes\Toji.jpg</imagen>
+    </personaje>
+
+    <personaje>
+        <titulo>Kenjaku</titulo>
+        <descripcion>Hechicero milenario que manipula cuerpos y planea la evolución forzada de la humanidad.</descripcion>
+        <imagen>Imagenes\Kenjaku.jpg</imagen>
+    </personaje>
+
+    <personaje>
+        <titulo>Yuta Okkotsu</titulo>
+        <descripcion>Hechicero de grado especial y portador del espíritu vengativo de Rika.</descripcion>
+        <imagen>Imagenes\Yuta.jpg</imagen>
+    </personaje>
+
+    <personaje>
+        <titulo>Maki Zenin</titulo>
+        <descripcion>Guerrera experta en armas malditas, con una determinación inquebrantable.</descripcion>
+        <imagen>Imagenes\Maki.jpg</imagen>
+    </personaje>
+
+    <personaje>
+        <titulo>Toge Inumaki</titulo>
+        <descripcion>Usuario de la técnica de palabras malditas, capaz de controlar a sus enemigos con su voz.</descripcion>
+        <imagen>Imagenes\Toge.jpg</imagen>
+    </personaje>
+
+    <personaje>
+        <titulo>Panda</titulo>
+        <descripcion>Un cadáver maldito único con personalidad propia y habilidades de combate sorprendentes.</descripcion>
+        <imagen>Imagenes\Panda.jpg</imagen>
+    </personaje>
+
+    <personaje>
+        <titulo>Kento Nanami</titulo>
+        <descripcion>Hechicero metódico y profesional, conocido por su técnica de proporción.</descripcion>
+        <imagen>Imagenes\Kento.jpg</imagen>
+    </personaje>
+
+</galeria>
