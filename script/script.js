@@ -1,30 +1,43 @@
 const btnBuscar = document.getElementById("btnBuscar");
 const inputBuscar = document.getElementById("buscar");
 const selectorTema = document.getElementById("tema");
-const btnAdd = document.getElementById("btnAdd");
-
-let contenedor = document.createElement("div");
-contenedor.classList.add("contenedor");
-document.body.insertBefore(contenedor, document.querySelector("footer"));
-
-btnAdd.addEventListener("click", () => {
-    const titulo = prompt("Título:");
-    const texto = prompt("Descripción:");
-    if (!titulo) return;
-
-    const tarjeta = document.createElement("div");
-    tarjeta.classList.add("tarjeta");
-    tarjeta.innerHTML = `<h3>${titulo}</h3><p>${texto || ""}</p>`;
-    contenedor.appendChild(tarjeta);
-});
+const resultado = document.getElementById("resultado");
 
 btnBuscar.addEventListener("click", () => {
-    const filtro = inputBuscar.value.toLowerCase();
-    const tarjetas = document.querySelectorAll(".tarjeta");
+    const nombreBuscado = inputBuscar.value.toLowerCase();
 
-    tarjetas.forEach(t => {
-        t.style.display = t.innerText.toLowerCase().includes(filtro) ? "block" : "none";
-    });
+    fetch("galeria.xml")
+        .then(res => res.text())
+        .then(data => {
+            const parser = new DOMParser();
+            const xml = parser.parseFromString(data, "text/xml");
+            const personajes = xml.getElementsByTagName("personaje");
+
+            let encontrado = false;
+            resultado.innerHTML = "";
+
+            for (let p of personajes) {
+                const titulo = p.getElementsByTagName("titulo")[0].textContent;
+                const descripcion = p.getElementsByTagName("descripcion")[0].textContent;
+                const imagen = p.getElementsByTagName("imagen")[0].textContent;
+
+                if (titulo.toLowerCase() === nombreBuscado) {
+                    encontrado = true;
+
+                    resultado.innerHTML = `
+                        <div class="tarjeta">
+                            <img src="${imagen}" alt="${titulo}" style="width:250px">
+                            <h3>${titulo}</h3>
+                            <p>${descripcion}</p>
+                        </div>
+                    `;
+                }
+            }
+
+            if (!encontrado) {
+                resultado.innerHTML = `<p>Prueba con otro, ese no se encuentra en la lista.</p>`;
+            }
+        });
 });
 
 selectorTema.addEventListener("change", () => {
