@@ -12,7 +12,7 @@
 <header>
     <h2>Jujutsu Kaisen</h2>
 
-    <input type="text" id="buscar" placeholder="Buscar...">
+    <input type="text" id="buscar" placeholder="Buscar por título...">
     <button id="btnBuscar">Buscar</button>
 
     <select id="tema">
@@ -37,10 +37,27 @@
         <input type="color" id="colorFooter">
 
         <button id="btnAplicarColores">Aplicar</button>
+        <button id="btnCerrarModalColores" style="background-color: #dc3545; color: white; border: none; padding: 10px; border-radius: 6px; cursor: pointer; margin-top: 5px;">Cancelar</button>
     </div>
 </div>
 
-<div id="resultado"></div>
+<div id="modalAdd" class="modalColores">
+    <div class="panelContenido">
+        <label>Título:</label>
+        <input type="text" id="nuevoTitulo" placeholder="Ej: Sukuna" style="padding: 5px;">
+        
+        <label>Descripción:</label>
+        <textarea id="nuevaDesc" placeholder="Descripción del personaje..." style="padding: 5px; resize: none;"></textarea>
+        
+        <label>Imagen:</label>
+        <input type="file" id="nuevaImagen" accept="image/*" style="color: white;">
+        
+        <button id="btnGuardarTarjeta" style="padding: 10px; background-color: #28a745; color: white; border: none; border-radius: 6px; cursor: pointer;">Guardar Tarjeta</button>
+        <button id="btnCerrarModalAdd" style="padding: 10px; background-color: #dc3545; color: white; border: none; border-radius: 6px; cursor: pointer; margin-top: 5px;">Cancelar</button>
+    </div>
+</div>
+
+<main id="resultado"></main>
 
 <footer>
     <p>Proyecto lenguaje de marcas: Joel, Iker y Oskar.</p>
