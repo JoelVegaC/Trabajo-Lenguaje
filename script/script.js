@@ -17,9 +17,10 @@ const btnAdd = document.getElementById("btnAdd");
 const btnGuardarTarjeta = document.getElementById("btnGuardarTarjeta");
 const btnCerrarModalAdd = document.getElementById("btnCerrarModalAdd");
 
-const colorBodyInicial = "linear-gradient(to bottom, #6a0dad, #000000)";
-const colorHeaderInicial = "#1e1e1e";
-const colorFooterInicial = "#1e1e1e";
+// Variables para de los colores originales
+//const colorBodyInicial = "linear-gradient(to bottom, #6a0dad, #000000)";
+//const colorHeaderInicial = "#1e1e1e";
+//const colorFooterInicial = "#1e1e1e";
 
 // Con esto hacemos que la pagina "cargue" de forma predeterminada todas las tarjeta
 window.addEventListener("DOMContentLoaded", () => {
@@ -98,8 +99,7 @@ selectorTema.addEventListener("change", () => {
 
     if (tema === "claro") {
         document.body.style.background = "linear-gradient(135deg, #ffffff, #becede)";
-        document.body.style.color = "white";
-        document.body.main.style.color = "#ffffff";
+        document.body.style.color = "black"; 
         document.querySelector("header").style.background = "#eacece";
         document.querySelector("footer").style.background = "#c4c2ea";
     }
@@ -107,17 +107,16 @@ selectorTema.addEventListener("change", () => {
     if (tema === "oscuro") {
         document.body.style.background = "linear-gradient(135deg, #000000, #2b2b2b)";
         document.body.style.color = "white";
-        document.body.main.style.color = "#ffffff";
         document.querySelector("header").style.background = "#1e1e1e";
         document.querySelector("footer").style.background = "#1e1e1e";
     }
 
     if (tema === "restaurar") {
-        document.body.style.background = colorBodyInicial;
-        document.body.style.color = "white";
-        document.querySelector("main").style.color = colorBodyInicial;
-        document.querySelector("header").style.background = colorHeaderInicial;
-        document.querySelector("footer").style.background = colorFooterInicial;
+        // borramos los estilos para que de esta manera use los originales
+        document.body.style.background = "";
+        document.body.style.color = "";
+        document.querySelector("header").style.background = "";
+        document.querySelector("footer").style.background = "";
     }
 });
 
