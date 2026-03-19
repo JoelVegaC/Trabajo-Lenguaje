@@ -46,11 +46,12 @@ header h2 {
 main {
     grid-area: main;
     padding: 20px;
-
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    /* Esto hace que las tarjetas se adapten sin usar media queries */
+    /* usamos auto-fill para que las tarjetas no se estiren a lo ancho */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
+    justify-content: center; 
+    align-items: start; 
 }
 
 /* Estilo del input del javascript */
