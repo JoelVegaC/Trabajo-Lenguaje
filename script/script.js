@@ -1,30 +1,34 @@
-const btnBuscar = document.getElementById("btnBuscar");
-const inputBuscar = document.getElementById("buscar");
+const botonBuscar = document.getElementById("btnBuscar");
+const campoBuscar = document.getElementById("buscar");
 const selectorTema = document.getElementById("tema");
-const resultado = document.getElementById("resultado");
+const zonaResultado = document.getElementById("resultado");
 
-btnBuscar.addEventListener("click", () => {
-    const nombreBuscado = inputBuscar.value.toLowerCase();
+const colorBodyInicial = getComputedStyle(document.body).background;
+const colorHeaderInicial = getComputedStyle(document.querySelector("header")).background;
+const colorFooterInicial = getComputedStyle(document.querySelector("footer")).background;
+
+botonBuscar.addEventListener("click", () => {
+    const nombre = campoBuscar.value.toLowerCase();
 
     fetch("galeria.xml")
         .then(res => res.text())
-        .then(data => {
+        .then(texto => {
             const parser = new DOMParser();
-            const xml = parser.parseFromString(data, "text/xml");
-            const personajes = xml.getElementsByTagName("personaje");
+            const xml = parser.parseFromString(texto, "text/xml");
+            const lista = xml.getElementsByTagName("personaje");
 
             let encontrado = false;
-            resultado.innerHTML = "";
+            zonaResultado.innerHTML = "";
 
-            for (let p of personajes) {
-                const titulo = p.getElementsByTagName("titulo")[0].textContent;
-                const descripcion = p.getElementsByTagName("descripcion")[0].textContent;
-                const imagen = p.getElementsByTagName("imagen")[0].textContent;
+            for (let personaje of lista) {
+                const titulo = personaje.getElementsByTagName("titulo")[0].textContent;
+                const descripcion = personaje.getElementsByTagName("descripcion")[0].textContent;
+                const imagen = personaje.getElementsByTagName("imagen")[0].textContent;
 
-                if (titulo.toLowerCase() === nombreBuscado) {
+                if (titulo.toLowerCase() === nombre) {
                     encontrado = true;
 
-                    resultado.innerHTML = `
+                    zonaResultado.innerHTML = `
                         <div class="tarjeta">
                             <img src="${imagen}" alt="${titulo}" style="width:250px">
                             <h3>${titulo}</h3>
@@ -35,7 +39,7 @@ btnBuscar.addEventListener("click", () => {
             }
 
             if (!encontrado) {
-                resultado.innerHTML = `<p>Prueba con otro, ese no se encuentra en la lista.</p>`;
+                zonaResultado.textContent = "Prueba con otro, ese no se encuentra en la lista.";
             }
         });
 });
@@ -56,4 +60,26 @@ selectorTema.addEventListener("change", () => {
     if (tema === "personal") {
         window.open("color.html", "_blank");
     }
+
+    if (tema === "restaurar") {
+        restaurarColores();
+    }
 });
+
+const colorBody = localStorage.getItem("colorBody");
+const colorHeader = localStorage.getItem("colorHeader");
+const colorFooter = localStorage.getItem("colorFooter");
+
+if (colorBody) document.body.style.background = colorBody;
+if (colorHeader) document.querySelector("header").style.background = colorHeader;
+if (colorFooter) document.querySelector("footer").style.background = colorFooter;
+
+function restaurarColores() {
+    document.body.style.background = colorBodyInicial;
+    document.querySelector("header").style.background = colorHeaderInicial;
+    document.querySelector("footer").style.background = colorFooterInicial;
+
+    localStorage.removeItem("colorBody");
+    localStorage.removeItem("colorHeader");
+    localStorage.removeItem("colorFooter");
+}
