@@ -26,6 +26,10 @@ body {
 /* Estilo del encabezado */
 header {
     grid-area: header;
+    background-color: #1e1e1e;
+    color: white;
+    padding: 15px 20px;
+
     /* Flex para alinear los elementos en fila y que bajen si no caben */
     display: flex;
     align-items: center;
@@ -34,16 +38,65 @@ header {
 }
 
 header h2 {
+    font-size: 24px;
     margin-right: auto; /* Esto empuja el resto de elementos hacia la derecha */
 }
 
 /* Estilo del main */
 main {
     grid-area: main;
+    padding: 20px;
+
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     /* Esto hace que las tarjetas se adapten sin usar media queries */
     gap: 20px;
+}
+
+/* Estilo del input del javascript */
+#buscar {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    width: 180px;
+}
+
+#btnBuscar {
+    padding: 8px 12px;
+    border: none;
+    background-color: #4a90e2;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#btnBuscar:hover {
+    background-color: #357ac9;
+}
+
+/* SELECTOR DE TEMA */
+#tema {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+/* BOTÓN AÑADIR TARJETA */
+#btnAdd {
+    padding: 8px 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#btnAdd:hover {
+    background-color: #1f8a38;
 }
 
 /* Estilo del modal */
@@ -58,14 +111,50 @@ main {
 }
 
 .panelContenido {
+    background: #2a2a2a;
+    padding: 20px;
+    border-radius: 10px;
+
     /* Flex en columna para ordenar los elementos del panel */
     display: flex;
     flex-direction: column;
     gap: 12px;
+    width: 260px;
+}
+
+.panelContenido input[type="color"] {
+    width: 50px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+}
+
+#btnAplicarColores {
+    padding: 10px;
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#btnAplicarColores:hover {
+    background-color: #e68900;
+}
+
+/* TARJETAS */
+.tarjeta {
+    margin-top: 20px;
 }
 
 /* Estilo del footer */
 footer {
     /* Esto hace que el footer se quede abajo incluso si hay poco contenido */
+    grid-area: footer;
     margin-top: auto;
+    background-color: #1e1e1e;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    font-size: 14px;
 }
