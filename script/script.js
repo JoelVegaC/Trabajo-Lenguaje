@@ -59,10 +59,10 @@ selectorTema.addEventListener("change", () => {
     panelColores.style.display = "none";
 
     if (tema === "claro") {
-        document.body.style.background = "linear-gradient(, white, #dcdcdc)";
+        document.body.style.background = "linear-gradient(135deg, #f5f4f4, #becede)";
         document.body.style.color = "black";
-        document.querySelector("header").style.background = "#1e1e1e";
-        document.querySelector("footer").style.background = "#1e1e1e";
+        document.querySelector("header").style.background = "#eacece";
+        document.querySelector("footer").style.background = "#c4c2ea";
     }
 
     if (tema === "oscuro") {
