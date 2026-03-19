@@ -1,4 +1,5 @@
-/* ====== RESET BÁSICO ====== */
+/* Estilos de los navegadores */
+/* Deja todos los navegadores con la mismo estilo */
 * {
     margin: 0;
     padding: 0;
@@ -6,28 +7,26 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* ====== ESTILOS GENERALES ====== */
+/* Estilo del body */
 body {
+    /* Esto mezcla dos colores negro y morado. El transparente hace que se fundan entre sí */
     background:
         linear-gradient(to top, black, transparent),
         linear-gradient(to bottom, purple, transparent);
+
     color: white;
     min-height: 100vh;
 
+    /* Convierto el body en un grid de 3 filas: header arriba, main ocupa todo el espacio y footer abajo. Así el footer no sube aunque haya poco contenido */
     display: grid;
     grid-template-rows: auto 1fr auto;
-    grid-template-areas:
-        "header"
-        "main"
-        "footer";
+    grid-template-areas:"header" "main" "footer";
 }
 
-/* ====== HEADER ====== */
+/* Estilo del encabezado */
 header {
-    grid-area: header; 
-    background-color: #1e1e1e;
-    color: white;
-    padding: 15px 20px;
+    grid-area: header;
+    /* Flex para alinear los elementos en fila y que bajen si no caben */
     display: flex;
     align-items: center;
     gap: 15px;
@@ -35,123 +34,38 @@ header {
 }
 
 header h2 {
-    font-size: 24px;
-    margin-right: auto;
+    margin-right: auto; /* Esto empuja el resto de elementos hacia la derecha */
 }
 
-/* ====== MAIN (GALERÍA) ====== */
+/* Estilo del main */
 main {
-    grid-area: main; 
-    padding: 20px;
+    grid-area: main;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Esto hace que las tarjetas se adapten sin usar media queries */
     gap: 20px;
 }
 
-
-
-/* ====== INPUT DE BÚSQUEDA ====== */
-#buscar {
-    padding: 8px 12px;
-    border-radius: 6px;
-    border: none;
-    outline: none;
-    width: 180px;
-}
-
-#btnBuscar {
-    padding: 8px 12px;
-    border: none;
-    background-color: #4a90e2;
-    color: white;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-#btnBuscar:hover {
-    background-color: #357ac9;
-}
-
-/* ====== SELECTOR DE TEMA ====== */
-#tema {
-    padding: 8px 12px;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-}
-
-/* ====== BOTÓN AÑADIR TARJETA ====== */
-#btnAdd {
-    padding: 8px 12px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-#btnAdd:hover {
-    background-color: #1f8a38;
-}
-
-/* ====== PANEL CENTRADO ====== */
+/* Estilo del modal */
 .modalColores {
-    display: none;
+    /* Ocupa toda la pantalla y se queda fijo aunque haga scroll */
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.6);
+    display: none;
     justify-content: center;
     align-items: center;
 }
 
 .panelContenido {
-    background: #2a2a2a;
-    padding: 20px;
-    border-radius: 10px;
+    /* Flex en columna para ordenar los elementos del panel */
     display: flex;
     flex-direction: column;
     gap: 12px;
-    width: 260px;
 }
 
-.panelContenido label {
-    color: white;
-}
-
-.panelContenido input[type="color"] {
-    width: 50px;
-    height: 50px;
-    border: none;
-    cursor: pointer;
-}
-
-#btnAplicarColores {
-    padding: 10px;
-    background-color: #ff9800;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-#btnAplicarColores:hover {
-    background-color: #e68900;
-}
-
-/* ====== TARJETAS ====== */
-.tarjeta {
-    margin-top: 20px;
-}
-
-/* ====== FOOTER ====== */
+/* Estilo del footer */
 footer {
-    grid-area: footer; 
+    /* Esto hace que el footer se quede abajo incluso si hay poco contenido */
     margin-top: auto;
-    background-color: #1e1e1e;
-    color: white;
-    text-align: center;
-    padding: 12px;
-    font-size: 14px;
 }
