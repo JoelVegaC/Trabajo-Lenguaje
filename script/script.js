@@ -3,7 +3,7 @@ const campoBuscar = document.getElementById("buscar");
 const selectorTema = document.getElementById("tema");
 const zonaResultado = document.getElementById("resultado");
 
-// Variables 
+// Variables Modal Colores
 const panelColores = document.getElementById("panelColores");
 const inputBody = document.getElementById("colorBody");
 const inputHeader = document.getElementById("colorHeader");
@@ -20,7 +20,6 @@ const btnCerrarModalAdd = document.getElementById("btnCerrarModalAdd");
 const colorBodyInicial = "linear-gradient(to bottom, #6a0dad, #000000)";
 const colorHeaderInicial = "#1e1e1e";
 const colorFooterInicial = "#1e1e1e";
-const colorMainInicial = "linear-gradient(to top, black, transparent), linear-gradient(to bottom, purple, transparent);"
 
 // Cargar todas las tarjetas al iniciar la página
 window.addEventListener("DOMContentLoaded", () => {
@@ -98,7 +97,7 @@ selectorTema.addEventListener("change", () => {
     panelColores.style.display = "none";
 
     if (tema === "claro") {
-        document.body.style.background = "white";
+        document.body.style.background = "linear-gradient(135deg, #ffffff, #becede)";
         document.body.style.color = "white";
         document.body.main.style.color = "#ffffff";
         document.querySelector("header").style.background = "#eacece";
