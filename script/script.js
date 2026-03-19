@@ -49,7 +49,7 @@ selectorTema.addEventListener("change", () => {
     }
 
     if (tema === "oscuro") {
-        document.body.style.background = "linear-gradient(135deg, #000000, #2b2b2b)";
+        document.body.style.background = "linear-gradient(to bottom left, grey, transparent), linear-gradient(to top right, black, transparent) ";
         document.body.style.color = "white";
     }
 
