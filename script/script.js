@@ -116,7 +116,7 @@ selectorTema.addEventListener("change", () => {
     if (tema === "restaurar") {
         document.body.style.background = colorBodyInicial;
         document.body.style.color = "white";
-        document.querySelector("main").style.background = colorMainInicial;
+        document.querySelector("main").style.color = colorBodyInicial;
         document.querySelector("header").style.background = colorHeaderInicial;
         document.querySelector("footer").style.background = colorFooterInicial;
     }
