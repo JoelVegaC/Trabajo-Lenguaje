@@ -3,7 +3,7 @@ const campoBuscar = document.getElementById("buscar");
 const selectorTema = document.getElementById("tema");
 const zonaResultado = document.getElementById("resultado");
 
-// Variables Modal Colores
+// Variables para el modal de colores personalizados
 const panelColores = document.getElementById("panelColores");
 const inputBody = document.getElementById("colorBody");
 const inputHeader = document.getElementById("colorHeader");
@@ -11,7 +11,7 @@ const inputFooter = document.getElementById("colorFooter");
 const botonAplicar = document.getElementById("btnAplicarColores");
 const btnCerrarModalColores = document.getElementById("btnCerrarModalColores");
 
-// Variables Modal Añadir
+// Variables para el modal de añadir tarjetas
 const modalAdd = document.getElementById("modalAdd");
 const btnAdd = document.getElementById("btnAdd");
 const btnGuardarTarjeta = document.getElementById("btnGuardarTarjeta");
@@ -21,12 +21,12 @@ const colorBodyInicial = "linear-gradient(to bottom, #6a0dad, #000000)";
 const colorHeaderInicial = "#1e1e1e";
 const colorFooterInicial = "#1e1e1e";
 
-// Cargar todas las tarjetas al iniciar la página
+// Con esto hacemos que la pagina "cargue" de forma predeterminada todas las tarjeta
 window.addEventListener("DOMContentLoaded", () => {
     cargarGaleria("");
 });
 
-// Función principal para cargar el XML y filtrar
+// Función principal para cargar el xml y filtrar
 function cargarGaleria(filtro) {
     fetch("data/data.xml")
         .then(res => res.text())
@@ -36,21 +36,21 @@ function cargarGaleria(filtro) {
             const lista = xml.getElementsByTagName("personaje");
 
             let encontrado = false;
-            zonaResultado.innerHTML = ""; // Limpiar antes de pintar
+            zonaResultado.innerHTML = ""; // con esto eliminamos el contenido antes de pintar el resultado
 
             for (let personaje of lista) {
                 const titulo = personaje.getElementsByTagName("titulo")[0].textContent;
                 const descripcion = personaje.getElementsByTagName("descripcion")[0].textContent;
                 let imagen = personaje.getElementsByTagName("imagen")[0].textContent;
 
-                // Filtrar por texto (ignora mayúsculas/minúsculas)
+                // este condicional filtra por texto (ignora mayúsculas/minúsculas)
                 if (titulo.toLowerCase().includes(filtro.toLowerCase()) || filtro === "") {
                     encontrado = true;
                     crearTarjetaDOM(titulo, descripcion, imagen);
                 }
             }
 
-            if (!encontrado) {
+            if (!encontrado) { // si no encuentra un resultado muestra un mensaje de error
                 zonaResultado.innerHTML = "<p style='grid-column: 1 / -1; text-align: center;'>Prueba con otro, ese no se encuentra en la lista.</p>";
             }
         })
@@ -80,12 +80,12 @@ function crearTarjetaDOM(titulo, descripcion, imagenSrc) {
     zonaResultado.appendChild(div);
 }
 
-// ----- EVENTOS DE BÚSQUEDA -----
+// Con esto hacemos que al hacer click se llame a la funcion de cargar la galeria y filtre por el valor indicado
 botonBuscar.addEventListener("click", () => {
     cargarGaleria(campoBuscar.value);
 });
 
-// ----- EVENTOS DEL TEMA -----
+// listener para cambiar los colores de la pagina
 selectorTema.addEventListener("change", () => {
     const tema = selectorTema.value;
 
@@ -133,7 +133,7 @@ btnCerrarModalColores.addEventListener("click", () => {
     selectorTema.value = "restaurar"; 
 });
 
-// ----- LÓGICA AÑADIR NUEVA TARJETA CON FILEREADER -----
+// listener para añadir una nueva tarjeta
 btnAdd.addEventListener("click", () => {
     modalAdd.style.display = "flex";
 });
@@ -152,7 +152,7 @@ btnGuardarTarjeta.addEventListener("click", () => {
         let reader = new FileReader();
         
         reader.onload = function(e) {
-            const rutaImagen = e.target.result; // Imagen en formato Base64
+            const rutaImagen = e.target.result; 
             
             // Añadimos la nueva tarjeta dinámicamente al <main>
             crearTarjetaDOM(titulo, desc, rutaImagen);
