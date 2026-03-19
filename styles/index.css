@@ -1,32 +1,32 @@
-/* Estilos generales */
+/*CSS de Index */
+
+/* Estilos generales de la pagina Index*/
 body {
     margin: 0;
     padding: 0;
     background:
         linear-gradient(to top, black, transparent),
         linear-gradient(to bottom, purple, transparent);
-    color: white;
-    font-family: Arial, sans-serif;
+        /*Este background se encarga de hacer un tono o estilo de degradado entre los dos coleres que hemos puesto*/
+    color: white; /* Color del texto blanco */
+    font-family: Arial, sans-serif; /* Establecemos como forma de texto el Arial (si por algun tipo de error este no funciona se prueba con sans-serif) */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
-
-/* Contenedor centrado */
+/* Contenedor centrado en la mitad de la pagina*/
 .contenedor {
     text-align: center;
-    transition: padding-top 0.5s ease;
+    transition: padding-top 0.5s ease; /*  Se encarga de  que el cambio no sea instantaneo y se vea de una forma mas profesional*/
     padding-top: 0px;
 }
-
 /* Titulo */
 .titulo {
     font-size: 50px;
     margin-bottom: 40px;
-    transition: transform 0.5s ease;
+    transition: transform 0.5s ease; /* Se encarga de  que el cambio no sea instantaneo y se vea de una forma mas profesional*/
 }
-
 /* Boton de acceso */
 .boton-acceso {
     padding: 15px 40px;
@@ -34,33 +34,30 @@ body {
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    background-color: #5c00ff;
+    background-color: #b700ff;
     color: white;
-    transition: transform 0.5s ease box-shadow 0.5s ease;
+    transition: transform 0.5s ease box-shadow 0.5s ease;  /* Se encarga de  que el cambio no sea instantaneo y se vea de una forma mas profesional */
 }
-/* Mensaje oculto por defecto */
+/* Mensaje oculto por defecto. Esto lo usamos para que no aaprezca al principio y una vez al pasar por el aparezca y sea mas profesional */
 .mensaje {
     font-size: 18px;
     opacity: 0;
     margin: 0 0 20px 0;
     transition: opacity 0.5s ease;
 }
-
-/* Cuando el ratón está sobre el contenedor */
+/* Cuando el ratón está sobre el contenedor se muestre el contenido que tiene mensaje o mejor dicho el contenedor en el que esta el mensaje aparezca*/
 .contenedor:hover .mensaje {
     opacity: 1;
 }
-
 /* Cambio al pasar por el boton de acceso */
 .boton-acceso:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 20px #8f4dff;
+    box-shadow: 0 0 20px purple;
 }
 /* Hover sobre el contenedor */
 .contenedor:hover .titulo {
-    transform: translateY(-100px); /* El título sube */
+    transform: translateY(-100px); /* El título sube arriba para dejar espacio en el centro para el boton */
 }
-
 /* Para que el contenedor deje espacio arriba */
 .contenedor:hover {
     padding-top: 40px;
