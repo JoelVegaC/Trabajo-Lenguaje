@@ -3,9 +3,15 @@ const campoBuscar = document.getElementById("buscar");
 const selectorTema = document.getElementById("tema");
 const zonaResultado = document.getElementById("resultado");
 
-const colorBodyInicial = getComputedStyle(document.body).background;
-const colorHeaderInicial = getComputedStyle(document.querySelector("header")).background;
-const colorFooterInicial = getComputedStyle(document.querySelector("footer")).background;
+const panelColores = document.getElementById("panelColores");
+const inputBody = document.getElementById("colorBody");
+const inputHeader = document.getElementById("colorHeader");
+const inputFooter = document.getElementById("colorFooter");
+const botonAplicar = document.getElementById("btnAplicarColores");
+
+const colorBodyInicial = "linear-gradient(to bottom, #6a0dad, #000000)";
+const colorHeaderInicial = "#1e1e1e";
+const colorFooterInicial = "#1e1e1e";
 
 botonBuscar.addEventListener("click", () => {
     const nombre = campoBuscar.value.toLowerCase();
@@ -38,48 +44,50 @@ botonBuscar.addEventListener("click", () => {
                 }
             }
 
-            if (!encontrado) {
-                zonaResultado.textContent = "Prueba con otro, ese no se encuentra en la lista.";
-            }
+            if (!encontrado) zonaResultado.textContent = "Prueba con otro, ese no se encuentra en la lista.";
         });
 });
 
 selectorTema.addEventListener("change", () => {
     const tema = selectorTema.value;
 
+    if (tema === "personal") {
+        panelColores.style.display = "flex";
+        return;
+    }
+
+    panelColores.style.display = "none";
+
     if (tema === "claro") {
         document.body.style.background = "linear-gradient(, white, #dcdcdc)";
         document.body.style.color = "black";
+        document.querySelector("header").style.background = "#1e1e1e";
+        document.querySelector("footer").style.background = "#1e1e1e";
     }
 
     if (tema === "oscuro") {
-        document.body.style.background = "linear-gradient(to bottom left, grey, transparent), linear-gradient(to top right, black, transparent) ";
+        document.body.style.background = "linear-gradient(135deg, #000000, #2b2b2b)";
         document.body.style.color = "white";
-    }
-
-    if (tema === "personal") {
-        window.open("color.html", "_blank");
+        document.querySelector("header").style.background = "#1e1e1e";
+        document.querySelector("footer").style.background = "#1e1e1e";
     }
 
     if (tema === "restaurar") {
-        restaurarColores();
+        document.body.style.background = colorBodyInicial;
+        document.body.style.color = "white";
+        document.querySelector("header").style.background = colorHeaderInicial;
+        document.querySelector("footer").style.background = colorFooterInicial;
     }
 });
 
-const colorBody = localStorage.getItem("colorBody");
-const colorHeader = localStorage.getItem("colorHeader");
-const colorFooter = localStorage.getItem("colorFooter");
+botonAplicar.addEventListener("click", () => {
+    const bodyColor = inputBody.value;
+    const headerColor = inputHeader.value;
+    const footerColor = inputFooter.value;
 
-if (colorBody) document.body.style.background = colorBody;
-if (colorHeader) document.querySelector("header").style.background = colorHeader;
-if (colorFooter) document.querySelector("footer").style.background = colorFooter;
+    document.body.style.background = bodyColor;
+    document.querySelector("header").style.background = headerColor;
+    document.querySelector("footer").style.background = footerColor;
 
-function restaurarColores() {
-    document.body.style.background = colorBodyInicial;
-    document.querySelector("header").style.background = colorHeaderInicial;
-    document.querySelector("footer").style.background = colorFooterInicial;
-
-    localStorage.removeItem("colorBody");
-    localStorage.removeItem("colorHeader");
-    localStorage.removeItem("colorFooter");
-}
+    panelColores.style.display = "none";
+});

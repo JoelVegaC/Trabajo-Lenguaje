@@ -8,13 +8,11 @@
 
 /* ====== ESTILOS GENERALES ====== */
 body {
-    background:
-        linear-gradient(to top, black, transparent),
-        linear-gradient(to bottom, purple, transparent);
-    color: white;
+    background: linear-gradient(to bottom, #6a0dad, #000000);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    color: white;
 }
 
 /* ====== HEADER ====== */
@@ -77,6 +75,55 @@ header h2 {
 
 #btnAdd:hover {
     background-color: #1f8a38;
+}
+
+/* ====== PANEL CENTRADO ====== */
+.modalColores {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.panelContenido {
+    background: #2a2a2a;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 260px;
+}
+
+.panelContenido label {
+    color: white;
+}
+
+.panelContenido input[type="color"] {
+    width: 50px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+}
+
+#btnAplicarColores {
+    padding: 10px;
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#btnAplicarColores:hover {
+    background-color: #e68900;
+}
+
+/* ====== TARJETAS ====== */
+.tarjeta {
+    margin-top: 20px;
 }
 
 /* ====== FOOTER ====== */
